@@ -1,0 +1,96 @@
+{
+	"name": "CDR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "input",
+				"fileSystem": "conn-moabits"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CDR_ID",
+				"type": "String"
+			},
+			{
+				"name": "ICCID",
+				"type": "String"
+			},
+			{
+				"name": "TYPE",
+				"type": "String"
+			},
+			{
+				"name": "CONNECT_TIME",
+				"type": "String"
+			},
+			{
+				"name": "CLOSE_TIME",
+				"type": "String"
+			},
+			{
+				"name": "DURATION",
+				"type": "String"
+			},
+			{
+				"name": "DIRECTION",
+				"type": "String"
+			},
+			{
+				"name": "CALLED_PARTY",
+				"type": "String"
+			},
+			{
+				"name": "CALLING_PARTY",
+				"type": "String"
+			},
+			{
+				"name": "COUNTRY_ISO3",
+				"type": "String"
+			},
+			{
+				"name": "COUNTRY_NAME",
+				"type": "String"
+			},
+			{
+				"name": "MCC",
+				"type": "String"
+			},
+			{
+				"name": "MNC",
+				"type": "String"
+			},
+			{
+				"name": "IMSI_ID",
+				"type": "String"
+			},
+			{
+				"name": "IMSI_NO",
+				"type": "String"
+			},
+			{
+				"name": "INVENTORY_ID",
+				"type": "String"
+			},
+			{
+				"name": "COMPANY_NAME",
+				"type": "String"
+			},
+			{
+				"name": "PACKAGE_ID",
+				"type": "String"
+			}
+		]
+	}
+}
