@@ -1,0 +1,46 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "CDR",
+						"type": "DatasetReference"
+					},
+					"name": "FileCDR"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          CDR_ID as string,",
+				"          ICCID as string,",
+				"          TYPE as string,",
+				"          CONNECT_TIME as string,",
+				"          CLOSE_TIME as string,",
+				"          DURATION as string,",
+				"          DIRECTION as string,",
+				"          CALLED_PARTY as string,",
+				"          CALLING_PARTY as string,",
+				"          COUNTRY_ISO3 as string,",
+				"          COUNTRY_NAME as string,",
+				"          MCC as string,",
+				"          MNC as string,",
+				"          IMSI_ID as string,",
+				"          IMSI_NO as string,",
+				"          INVENTORY_ID as string,",
+				"          COMPANY_NAME as string,",
+				"          PACKAGE_ID as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 50,",
+				"     ignoreNoFilesFound: true,",
+				"     moveFiles: ['/input','processed']) ~> FileCDR"
+			]
+		}
+	}
+}
