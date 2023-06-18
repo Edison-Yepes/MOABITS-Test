@@ -1,0 +1,55 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table dim_clients {
+  id_client integer [primary key]
+  cod_client varchar()
+  name_client varchar()
+  load_date timestamp
+  updated_at timestamp 
+}
+
+Table dim_countries {
+  id_country integer [primary key]
+  cod_iso3_country varchar()
+  cod_mcc_country varchar()
+  country_name varchar()
+  load_date timestamp
+  updated_at timestamp 
+}
+
+Table dim_types {
+  id_type integer [primary key]
+  cod_type varchar()
+  desc_type varchar()
+  load_date timestamp
+  updated_at timestamp 
+}
+
+Table dim_networks_subscriptors {
+  id_network_subscriptor integer [primary key]
+  cod_mnc_network varchar()
+  cod_imsi_network_subscriptor varchar()
+  load_date timestamp
+  updated_at timestamp 
+}
+
+Table fact_transactions {
+  id_transaction integer [primary key]
+  cod_transaction varchar
+  cod_ICCID varchar
+  id_type integer
+  id_client integer
+  id_country integer
+  id_network_subscriptor integer
+  connect_time timestamp
+  close_time timestamp
+  consumption integer
+  load_date timestamp
+  updated_at timestamp 
+}
+
+Ref: dim_countries.id_country < fact_transactions.id_country
+Ref: dim_clients.id_client < fact_transactions.id_client
+Ref: dim_types.id_type < fact_transactions.id_type
+Ref: dim_networks_subscriptors.id_network_subscriptor < fact_transactions.id_network_subscriptor
